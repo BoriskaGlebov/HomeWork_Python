@@ -1,4 +1,13 @@
+import math
 
+
+def get_sage_sqrt(num):
+    try:
+        rez = math.sqrt(num)
+        return rez
+    except (ValueError, TypeError):
+        # print('Поступило отрицательное число! Ошибка')
+        return 'Ошибка!'
 
 
 # Здесь создайте функцию get_sage_sqrt
