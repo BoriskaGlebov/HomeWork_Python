@@ -1,5 +1,32 @@
 print('Задача 04. Магия')
+class Storm:
+    def __str__(self):
+        return f'Вода + Воздух = Шторм'
 
+
+class Steem:
+    def __str__(self):
+        return f'Вода + Огонь = Пар'
+
+
+class Dirt:
+    def __str__(self):
+        return f'Вода + Земля = Грязь'
+
+
+class Lightning:
+    def __str__(self):
+        return f'Воздух + Огонь = Молния'
+
+
+class Dust:
+    def __str__(self):
+        return f'Воздух + Земля = Пыль'
+
+
+class Lava:
+    def __str__(self):
+        return f'Огонь + Земля = Лава'
 
 class Water:
     def __str__(self):
@@ -39,34 +66,7 @@ class Earth:
         return 'Земля'
 
 
-class Storm:
-    def __str__(self):
-        return f'Вода + Воздух = Шторм'
 
-
-class Steem:
-    def __str__(self):
-        return f'Вода + Огонь = Пар'
-
-
-class Dirt:
-    def __str__(self):
-        return f'Вода + Земля = Грязь'
-
-
-class Lightning:
-    def __str__(self):
-        return f'Воздух + Огонь = Молния'
-
-
-class Dust:
-    def __str__(self):
-        return f'Воздух + Земля = Пыль'
-
-
-class Lava:
-    def __str__(self):
-        return f'Огонь + Земля = Лава'
 
 
 water = Water()

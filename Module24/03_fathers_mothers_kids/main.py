@@ -11,10 +11,8 @@ class Parent:
         if self.age - age < 16:
             print('Возраст ребенка должен быть на 16 меньше родителя')
             age = self.age - 16
-            children_new = Children(name, age, calm, satisfied)
-        else:
-            children_new = Children(name, age, calm, satisfied)
-        self.children_list.append(children_new)
+        children_new = Children(name, age, calm, satisfied)
+
 
     def feed_children(self):
         for children in self.children_list:

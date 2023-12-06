@@ -13,15 +13,18 @@ class Warrior:
         self.health -= damage
 
     def print_info(self):
-        if self.health >= 0:
-            print(f'Осталось здоровья: {self.health}')
-        else:
-            print(f'Осталось здоровья: 0')
+        h = self.health if self.health else 0
+        print(f'Осталось здоровья: {h}')
+        # if self.health >= 0:
+        #     print(f'Осталось здоровья: {self.health}')
+        # else:
+        #     print(f'Осталось здоровья: 0')
 
 
-warrior_1 = Warrior()
+warrior_1 = Warrior(damage=45)
 warrior_2 = Warrior()
-while warrior_1.health > 0 and warrior_2.health > 0:
+while (warrior_1.health > 0 and
+       warrior_2.health > 0):
     who = randint(1, 2)
     print('Дыщ!!!!')
     if who == 1:
