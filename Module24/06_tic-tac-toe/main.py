@@ -44,6 +44,13 @@ class Player:
 class Game:
     # словарь статуса игры
     game_state_dict = {1: 'Начало игры', 2: 'Идет игра', 3: 'Game over', 4: 'Ничья'}
+    vin_list = [[0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]]
 
     # класс «Игры» содержит атрибуты:
     # состояние игры,
@@ -79,44 +86,17 @@ class Game:
             return True
         else:
             return False
-#Можно ли было как-то компактенее записать условия для победы?
+
+    # Можно ли было как-то компактенее записать условия для победы?
+
     def win(self):  # Условия для победы, проверка победа или нет
-        if ((self.board_value.board[0].empty == self.board_value.board[1].empty == self.board_value.board[
-            2].empty == ' X ') or
-                (self.board_value.board[3].empty == self.board_value.board[4].empty == self.board_value.board[5].empty
-                 == ' X ') or
-                (self.board_value.board[6].empty == self.board_value.board[7].empty == self.board_value.board[8].empty
-                 == ' X ') or
-                (self.board_value.board[0].empty == self.board_value.board[3].empty == self.board_value.board[6].empty
-                 == ' X ') or
-                (self.board_value.board[1].empty == self.board_value.board[4].empty == self.board_value.board[7].empty
-                 == ' X ') or
-                (self.board_value.board[2].empty == self.board_value.board[5].empty == self.board_value.board[8].empty
-                 == ' X ') or
-                (self.board_value.board[0].empty == self.board_value.board[4].empty == self.board_value.board[8].empty
-                 == ' X ') or
-                (self.board_value.board[2].empty == self.board_value.board[4].empty == self.board_value.board[6].empty
-                 == ' X ')):
-            return True
-        elif ((self.board_value.board[0].empty == self.board_value.board[1].empty == self.board_value.board[
-            2].empty == ' O ') or
-              (self.board_value.board[3].empty == self.board_value.board[4].empty == self.board_value.board[5].empty
-               == ' O ') or
-              (self.board_value.board[6].empty == self.board_value.board[7].empty == self.board_value.board[8].empty
-               == ' O ') or
-              (self.board_value.board[0].empty == self.board_value.board[3].empty == self.board_value.board[6].empty
-               == ' O ') or
-              (self.board_value.board[1].empty == self.board_value.board[4].empty == self.board_value.board[7].empty
-               == ' O ') or
-              (self.board_value.board[2].empty == self.board_value.board[5].empty == self.board_value.board[8].empty
-               == ' O ') or
-              (self.board_value.board[0].empty == self.board_value.board[4].empty == self.board_value.board[8].empty
-               == ' O ') or
-              (self.board_value.board[2].empty == self.board_value.board[4].empty == self.board_value.board[6].empty
-               == ' O ')):
-            return True
-        else:
-            return False
+        for i in self.vin_list:
+            if self.board_value.board[i[0]] == self.board_value.board[i[1]] == self.board_value.board[i[2]] == ' X ':
+                return True
+            elif self.board_value.board[i[0]] == self.board_value.board[i[1]] == self.board_value.board[i[2]] == ' O ':
+                return True
+            else:
+                return False
 
     def start_game(self):  # Начало игры
         play_again = True
