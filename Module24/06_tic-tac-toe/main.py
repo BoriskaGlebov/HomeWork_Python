@@ -91,9 +91,15 @@ class Game:
 
     def win(self):  # Условия для победы, проверка победа или нет
         for i in self.vin_list:
-            if self.board_value.board[i[0]] == self.board_value.board[i[1]] == self.board_value.board[i[2]] == ' X ':
+            if (self.board_value.board[i[0]] ==
+                    self.board_value.board[i[1]] ==
+                    self.board_value.board[i[2]] ==
+                    ' X '):
                 return True
-            elif self.board_value.board[i[0]] == self.board_value.board[i[1]] == self.board_value.board[i[2]] == ' O ':
+            elif (self.board_value.board[i[0]] ==
+                  self.board_value.board[i[1]] ==
+                  self.board_value.board[i[2]] ==
+                  ' O '):
                 return True
             else:
                 return False
