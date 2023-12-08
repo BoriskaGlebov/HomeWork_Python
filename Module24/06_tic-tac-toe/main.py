@@ -91,18 +91,19 @@ class Game:
 
     def win(self):  # Условия для победы, проверка победа или нет
         for i in self.vin_list:
-            if (self.board_value.board[i[0]] ==
-                    self.board_value.board[i[1]] ==
-                    self.board_value.board[i[2]] ==
+            if (self.board_value.board[i[0]].empty ==
+                    self.board_value.board[i[1]].empty ==
+                    self.board_value.board[i[2]].empty ==
                     ' X '):
                 return True
-            elif (self.board_value.board[i[0]] ==
-                  self.board_value.board[i[1]] ==
-                  self.board_value.board[i[2]] ==
+            elif (self.board_value.board[i[0]].empty ==
+                  self.board_value.board[i[1]].empty ==
+                  self.board_value.board[i[2]].empty ==
                   ' O '):
                 return True
-            else:
-                return False
+        else:
+            return False
+
 
     def start_game(self):  # Начало игры
         play_again = True
@@ -110,7 +111,7 @@ class Game:
             print('{:^30}'.format('Игра началась'))
             self.board_value.display()
             count = 1
-            while self.game_state < 3:
+            while self.game_state <= 3:
                 try:
                     if count % 2:
                         cell = int(input(f'{self.name_1} введите номер ячейки куда будете ходить?'))
@@ -132,7 +133,7 @@ class Game:
                         else:
                             print('Клетка занята')
                             continue
-                    os.system('cls')  # Вот эта штука работает лишь в консоли виндовс
+                    # os.system('cls')  # Вот эта штука работает лишь в консоли виндовс
                     self.board_value.display()
                     count += 1
                     if self.win():
