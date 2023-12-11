@@ -38,7 +38,7 @@ class Monster:
         pass
 
     def __str__(self):
-        return 'Name: {0} | HP: {1}'.format(self.name, self.get_hp())
+        return 'Name: {0:<18} | HP: {1:.2f}'.format(self.name, self.get_hp())
 
 
 class MonsterBerserk(Monster):
