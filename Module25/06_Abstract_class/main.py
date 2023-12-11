@@ -8,26 +8,27 @@ class Shape:
 
 
 class Circle(Shape):
-    def __init__(self,radius):
+    def __init__(self, radius):
         self.radius = radius
+
     def area(self):
         return math.pi * self.radius ** 2
 
 
 class Rectangle(Shape):
-    def __init__(self,a,b):
+    def __init__(self, a, b):
         self.a = a
         self.b = b
-
 
     def area(self):
         return self.a * self.b
 
 
 class Triangle(Shape):
-    def __init__(self,a,h):
+    def __init__(self, a, h):
         self.a = a
         self.h = h
+
     def area(self):
         return self.a * self.h / 2
 
@@ -46,5 +47,9 @@ triangle_area = triangle.area()
 
 # Вывод результатов
 print("Площадь круга:", circle_area)
+
 print("Площадь прямоугольника:", rectangle_area)
+
 print("Площадь треугольника:", triangle_area)
+
+print(f"foo{circle_area}")
