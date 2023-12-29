@@ -1,4 +1,5 @@
-import functools, datetime
+import functools
+import datetime
 from typing import Callable
 
 
@@ -6,7 +7,7 @@ def logging(funk: Callable) -> Callable:
     """
     Функция декоратор
     """
-
+    @functools.wraps(funk)
     def wrap_funk(*args):
         try:
             rez = funk(*args)
@@ -17,7 +18,8 @@ def logging(funk: Callable) -> Callable:
         except TypeError as exc:
             with open('error.txt', 'a+', encoding='utf8') as error_file:
                 today = datetime.datetime.now().strftime("%d/%m/%Y - %H:%M")
-                error_file.write(f'{today} ERROR {type(exc)} в функции {funk.__name__}\n')
+                error_file.write(f'{today} ERROR {type(exc)} в '
+                                 f'функции {funk.__name__}\n')
                 print('ОШИБОЧКА типа данных!\n')
 
     return wrap_funk

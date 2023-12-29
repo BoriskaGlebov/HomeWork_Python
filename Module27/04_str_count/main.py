@@ -18,7 +18,7 @@ import functools
 
 def counter(funk: Callable) -> Callable:
     """Функция декоратор считает сколько раз ее вызывают"""
-
+    @functools.wraps(funk)
     def wrapped_funk(*args):
         wrapped_funk.count += 1
         rez = funk(*args)

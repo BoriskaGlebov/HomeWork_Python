@@ -1,4 +1,5 @@
-import functools, time
+import functools
+import time
 from typing import Callable, Any, Generator
 
 
