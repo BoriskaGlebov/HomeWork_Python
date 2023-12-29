@@ -37,4 +37,3 @@ data = Data.from_string('10-12-2077')
 print(data)
 print(Data.is_date_valid('10-12-2077'))
 print(Data.is_date_valid('40-12-2077'))
-

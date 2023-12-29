@@ -1,4 +1,4 @@
-from typing import Any, Callable
+from typing import Any
 
 
 class LRUCache:
@@ -85,5 +85,3 @@ cache.cache = ("key4", "value4")
 #
 # # Выводим обновленный кэш
 cache.print_cache()  # key2 : value2, key3 : value3, key4 : value4
-
-
