@@ -27,7 +27,7 @@ class LRUCache:
     @property
     def cache(self) -> str:
         """Геттер - этот метод должен возвращать самый старый элемент"""
-        return (f' {list(self._cache_dict.keys())[0]} - '
+        return (f'{list(self._cache_dict.keys())[0]} - '
                 f'{self._cache_dict[list(self._cache_dict.keys())[0]]}')
 
     @cache.setter
@@ -38,16 +38,25 @@ class LRUCache:
         """
         if len(self._cache_dict.keys()) < self.capacity:
             self._cache_dict[new_elem[0]] = new_elem[1]
+        elif len(self.use_counter.keys()) == 0:
+            self._cache_dict.pop(list(self._cache_dict.keys())[0])
+            self._cache_dict[new_elem[0]] = new_elem[1]
         else:
+            max_used = max(self.use_counter.values())  # убрал сортировку на каждом цикле
             for k, v in self.use_counter.items():
-                if v == max(self.use_counter.values()):
-                    for key, value in self._cache_dict.items():
-                        if k != key:
-                            self._cache_dict.pop(key)
-                            if key in self.use_counter.keys():
-                                self.use_counter.pop(key)
-                            self._cache_dict[new_elem[0]] = new_elem[1]
-                            break
+                if v == max_used:
+                    if list(self._cache_dict.keys())[0] == k:
+                        if list(self._cache_dict.keys())[1] in self.use_counter.keys():
+                            self.use_counter.pop(list(self._cache_dict.keys())[1])
+                        self._cache_dict.pop(list(self._cache_dict.keys())[1])
+                        self._cache_dict[new_elem[0]] = new_elem[1]
+                        break
+                    else:
+                        if list(self._cache_dict.keys())[0] in self.use_counter.keys():
+                            self.use_counter.pop(list(self._cache_dict.keys())[0])
+                        self._cache_dict.pop(list(self._cache_dict.keys())[0])
+                        self._cache_dict[new_elem[0]] = new_elem[1]
+                        break
 
     def print_cache(self) -> None:
         """Выводит текущий кэш"""
@@ -73,15 +82,22 @@ cache.cache = ("key1", "value1")
 cache.cache = ("key2", "value2")
 cache.cache = ("key3", "value3")
 
-# # # Выводим текущий кэш
-cache.print_cache()  # key1 : value1, key2 : value2, key3 : value3
 #
-# # Получаем значение по ключу
+# # # # Выводим текущий кэш
+cache.print_cache()  # key1 : value1, key2 : value2, key3 : value3
+# #
+# # # Получаем значение по ключу
 print(cache.get("key2"))  # value2
+print(cache.get("key2"))
+print(cache.get("key1"))
 
 #
-# # Добавляем новый элемент, превышающий лимит capacity
+# #
+# # # Добавляем новый элемент, превышающий лимит capacity
 cache.cache = ("key4", "value4")
-#
-# # Выводим обновленный кэш
+
+
+# #
+# # # Выводим обновленный кэш
+print(cache.cache)
 cache.print_cache()  # key2 : value2, key3 : value3, key4 : value4
