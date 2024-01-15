@@ -1,4 +1,25 @@
-# TODO здесь писать код
+from typing import Callable
+from functools import update_wrapper
+from time import time
+
+
+class LoggerDecorator:
+    """Класс-декоратор"""
+
+    def __init__(self, func: Callable) -> None:
+        update_wrapper(self, func)
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
+        print(f'Вызов функции {self.func.__name__}')
+        print(f'Аргументы: {args} {kwargs}')
+        start = time()
+        rez_func = self.func(*args, **kwargs)
+        print(rez_func)
+        end = time()
+        rez_time = end - start
+        print(f'Время выполнения {rez_time} секунд')
+        return rez_func
 
 
 @LoggerDecorator
