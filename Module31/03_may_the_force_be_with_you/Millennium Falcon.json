@@ -1,0 +1,53 @@
+{
+    "name": "Millennium Falcon",
+    "model": "YT-1300 light freighter",
+    "manufacturer": "Corellian Engineering Corporation",
+    "cost_in_credits": "100000",
+    "length": "34.37",
+    "max_atmosphering_speed": "1050",
+    "crew": "4",
+    "passengers": "6",
+    "cargo_capacity": "100000",
+    "consumables": "2 months",
+    "hyperdrive_rating": "0.5",
+    "MGLT": "75",
+    "starship_class": "Light freighter",
+    "pilots": [
+        {
+            "name": "Chewbacca",
+            "height": "228",
+            "mass": "112",
+            "planet": "Kashyyyk",
+            "homeworld": "https://swapi.dev/api/planets/14/"
+        },
+        {
+            "name": "Han Solo",
+            "height": "180",
+            "mass": "80",
+            "planet": "Corellia",
+            "homeworld": "https://swapi.dev/api/planets/22/"
+        },
+        {
+            "name": "Lando Calrissian",
+            "height": "177",
+            "mass": "79",
+            "planet": "Socorro",
+            "homeworld": "https://swapi.dev/api/planets/30/"
+        },
+        {
+            "name": "Nien Nunb",
+            "height": "160",
+            "mass": "68",
+            "planet": "Sullust",
+            "homeworld": "https://swapi.dev/api/planets/33/"
+        }
+    ],
+    "films": [
+        "https://swapi.dev/api/films/1/",
+        "https://swapi.dev/api/films/2/",
+        "https://swapi.dev/api/films/3/"
+    ],
+    "created": "2014-12-10T16:59:45.094000Z",
+    "edited": "2014-12-20T21:23:49.880000Z",
+    "url": "https://swapi.dev/api/starships/10/"
+}

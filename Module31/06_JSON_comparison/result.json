@@ -1,0 +1,15 @@
+{
+    "services": [
+        {
+            "id": 9035445,
+            "title": "\u0421\u0442\u0440\u0438\u0436\u043a\u0430",
+            "cost": 1500,
+            "cost_per_unit": 1500,
+            "first_cost": 1500,
+            "amount": 1
+        }
+    ],
+    "datetime": "2022-01-25T11:00:00+03:00",
+    "attendance": 0,
+    "paid_full": 0
+}
