@@ -9,4 +9,4 @@ pellentesque eu, pretium quis, sem.
 Nulla consequat massa quis enim. Donec pede justo,
 fringilla vel, aliquet nec, vulputate"""
 # print(text)
-
+print(re.findall(r'\b\w{4}\b', text))
